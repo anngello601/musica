@@ -1,0 +1,52 @@
+/* ========================================== */
+/* ESTILOS GLOBALES (App)                     */
+/* ========================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #0f0f1a;
+  color: #fff;
+  min-height: 100vh;
+}
+
+header {
+  text-align: center;
+  padding: 30px 20px 10px 20px;
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  border-bottom: 2px solid #ffd700;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: #ffd700;
+  margin-bottom: 6px;
+}
+
+header p {
+  color: #aaa;
+  font-size: 1rem;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #555;
+  border-top: 1px solid #222;
+  margin-top: 40px;
+}
+
+footer p {
+  font-size: 0.9rem;
+}

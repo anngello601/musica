@@ -1,0 +1,60 @@
+<!-- ========================================== -->
+<!-- LISTA DE CANCIONES (CON DTO)              -->
+<!-- ========================================== -->
+
+<h2>🎵 Lista de Canciones</h2>
+
+<!-- ⏳ Cargando -->
+<div *ngIf="loading" style="padding:20px; background:#f0f0f0; border-radius:8px;">
+  ⏳ Cargando canciones...
+</div>
+
+<!-- ❌ Error -->
+<div *ngIf="errorMessage" style="padding:20px; background:#ffebee; color:#c62828; border-radius:8px;">
+  ❌ {{ errorMessage }}
+</div>
+
+<!-- 🎵 Lista de canciones -->
+<div *ngIf="!loading && canciones.length > 0">
+
+  <p style="color:#888; margin-bottom:16px;">
+    Total: {{ canciones.length }} canciones
+  </p>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
+    <div
+      *ngFor="let cancion of canciones"
+      style="background: #1a1a2e; border-radius: 12px; padding: 16px; color: #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"
+    >
+      <h3 style="color: #ffd700; margin: 0 0 8px 0;">{{ cancion.titulo }}</h3>
+
+      <p style="margin: 4px 0;">
+        🎤 <strong>Artista:</strong> {{ cancion.artistaNombre || 'Desconocido' }}
+      </p>
+      <p style="margin: 4px 0;">
+        💿 <strong>Álbum:</strong> {{ cancion.albumTitulo || 'Desconocido' }}
+      </p>
+      <p style="margin: 4px 0;">
+        🎵 <strong>Género:</strong> {{ cancion.generoNombre || 'Desconocido' }}
+      </p>
+      <p style="margin: 4px 0;">
+        ⏱️ <strong>Duración:</strong> {{ cancion.duracion }} seg
+      </p>
+      <p style="margin: 4px 0 12px 0;">
+        🎧 <strong>Reproducciones:</strong> {{ cancion.reproducciones }}
+      </p>
+
+      <button
+        (click)="eliminarCancion(cancion.id)"
+        style="background: #e74c3c; border: none; color: #fff; padding: 8px 16px; border-radius: 8px; cursor: pointer; width: 100%;"
+      >
+        🗑️ Eliminar
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- 🕊️ Sin canciones -->
+<div *ngIf="!loading && canciones.length === 0" style="padding:40px; text-align:center; color:#888;">
+  🎶 No hay canciones disponibles.
+</div>
